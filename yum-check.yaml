@@ -1,0 +1,13 @@
+- name: check for updates
+  hosts: rubby
+  become: yes
+  gather_facts: true
+
+  tasks:
+  - name: check for updates (yum)
+    yum: list=updates update_cache=true
+    register: stat_yum_check_output
+
+  - name: Output
+    debug:
+      msg: "{{ stat_yum_check_output.results | map(attribute='name') | list }}"
