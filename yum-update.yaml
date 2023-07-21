@@ -1,0 +1,8 @@
+---
+- hosts: rubby
+  become: yes
+  tasks:
+   - name: Install Updates
+     yum:
+       name: "*"
+       state: latest
