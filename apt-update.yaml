@@ -1,3 +1,6 @@
+- name: check for updates
+  become: yes
+  gather_facts: false
   - name: Run the equivalent of "apt-get update" as a separate step
     apt:
       update_cache: true
